@@ -35,15 +35,21 @@ app.get('/users/:id',(req,res) => {
   })
 });
 
-app.post('/users/:id',(req,res) => {
+app.put('/users/:id',(req,res) => {
     let id = req.params.id;
     console.log(id);
-    User.findByIdAndUpdate(id,(err,user) => {
-        if(err) return next(err);
-        res.json(user);
+    User.findByIdAndUpdate(id,req.body,{new:true}, (err,updatedUser) => {
+      if(err) return next(err);
+      res.json(updatedUser)
     })
 })
-
+app.delete('/users/:id',(req,res) => {
+    let id = req.params.id;
+    User.findByIdAndDelete(id,(err,user) => {
+        if(err) return next (err);
+        res.send(`${User.findById(id)} is deleted successfully`)
+    })
+})
 
 //checking the database data
    // use sample
