@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 
-
+//this is the article achema
 
 // article schema
 let articleSchema = new Schema({
