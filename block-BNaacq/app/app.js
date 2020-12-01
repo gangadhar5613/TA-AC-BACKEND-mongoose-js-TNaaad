@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost/blog",{useNewUrlParser:true,useUnifiedTopo
  console.log(err ? err : "database connected");
 })
 
+//json format
 app.use(express.json());
 
 
